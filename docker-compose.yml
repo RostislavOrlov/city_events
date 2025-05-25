@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./frontend_city_events
+    ports:
+      - "8080:80"
+    environment:
+      - VUE_APP_API_URL=http://backend:5000/api
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./backend_city_events
+    ports:
+      - "5000:5000"
+    environment:
+      - DATABASE_URL=postgresql://user:password@db:5432/city_events
+      - SECRET_KEY=your-secret-key
+    depends_on:
+      - db
+    volumes:
+      - ./city_events_backend:/app
+
+  db:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=city_events
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres_data:
