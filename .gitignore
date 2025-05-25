@@ -1,0 +1,6 @@
+city_events_frontend/node_modules/
+city_events_frontend/.env
+city_events_frontend/.DS_Store
+city_events_frontend/dist/
+city_events_frontend/*.log
+city_events_frontend/*.tmp
