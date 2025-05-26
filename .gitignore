@@ -2,7 +2,6 @@ city_events_frontend/node_modules/
 city_events_frontend/public/
 city_events_frontend/jsconfig.json
 city_events_frontend/package-lock.json
-city_events_frontend/package.json
 city_events_frontend/.env
 city_events_frontend/.DS_Store
 city_events_frontend/dist/
